@@ -3,3 +3,4 @@ module.exports = function zeros(expression) {
   {
   	var str=expression.split('*');
   }
+  return 0;
