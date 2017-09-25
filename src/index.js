@@ -49,7 +49,7 @@ for(var i=0;i<lastmass.length;i++)
  mult=mult*lastmass[i];
 }
 //alert(mult);// 414720
-var lastnum, zeros=0;
+var lastnum, zeross=0;
 var n=true;
 
 while(n)
@@ -57,11 +57,11 @@ while(n)
   lastnum = mult % 10; /* находим остаток от деления на 10 */
     if(lastnum==0)
     {
-    zeros++;
+    zeross++;
     mult=mult/10;
     }
     else{ n=false;}
 }
-return(zeros);
+return(zeross);
 
 }
