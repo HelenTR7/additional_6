@@ -15,8 +15,6 @@ var factorial_2 = function(number)
  if (number <= 0)   {  return 1; } 
  else  {  return (number * factorial_2(number - 2)); }
 }
-
-expression='10!';
 var mass=expression.split('*'); //разбили строку на массив без *
 
 var newmass = mass.map(function(name) //каждый элемент откинули все кроме цифр
