@@ -23,7 +23,8 @@ for(var i=0; i<number; i++)
     y=y*5;
 
 
-}alert(shet); return shet;
+}//alert(shet); 
+  return shet;
 }
 
 
@@ -49,7 +50,8 @@ for(var i=0; i<number; i++)
     y=y*10;
 
 
-}alert(shet); return shet;
+}//alert(shet); 
+  return shet;
 }
 
 
@@ -79,13 +81,13 @@ for(var i=0;i<mass.length;i++)//кол-во элементов массива п
   }
 }
 
-alert( lastmass );//массив из количества нулей в каждом факториале
+//alert( lastmass );//массив из количества нулей в каждом факториале
 var summ=0;
 for(var i=0;i<lastmass.length;i++)
 {
  summ=summ+lastmass[i];
 }
-alert(summ);// 414720
+//alert(summ);// 414720
 return summ;
 
 }
