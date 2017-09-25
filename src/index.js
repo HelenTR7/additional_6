@@ -53,7 +53,47 @@ for(var i=0; i<number; i++)
 }//alert(shet); 
   return shet;
 }
+////////////////////////
+var factorial_3 = function(number) 
+{
+ var p=1;
+ for(var i=1;i<number;i++)
+ {
+   p=p*i;
+   if(p%10==0)
+   {
+    p=p/10;
+   }
+ }
+ var lastnum;
+ lastnum=p%100;//берем 2 посл цифры
+//alert(lastnum);
+return lastnum; 
 
+}
+
+
+var factorial_4 = function(number) 
+{
+ var p=1;
+ for(var i=number;i>0;i--)
+ {
+   p=p*i;
+   if(p%10==0)
+   {
+    p=p/10;
+   }
+ }
+ var lastnum;
+ lastnum=p%100;//берем 2 посл цифры
+//alert(lastnum);
+return lastnum; 
+
+}
+
+
+
+/////////////////////////////////
 
 
 
@@ -66,6 +106,48 @@ var newmass = mass.map(function(name) //каждый элемент откину
 //alert(mass[0].length);//длинна строки элемента
 //alert(mass.length + " kolihestvo elem mass ");
 var lastmass=[];
+  
+  ////////////////////////////////////////
+var lastmassnum=[];
+for(var i=0;i<mass.length;i++)//кол-во элементов массива пробегаем
+{  
+ 
+  if((mass[i].length-newmass[i].length)==1)//если факториал один
+  { 
+    newmass[i]= +newmass[i];
+    lastmassnum[i]=factorial_3(newmass[i]);//получили массив посл цифр
+   // alert(lastmassnum[i]+"massiv last");
+  }
+   else // если факториала два
+   { 
+    newmass[i]= +newmass[i];
+    lastmassnum[i]=factorial_4(newmass[i]);
+   }
+}
+
+
+
+var mult=0, shet2=0;
+for(var i=0;i<lastmassnum.length;i++)
+{
+ mult=mult*lastmassnum[i];
+ if(mult%10==0)
+   {
+    mult=mult/10;
+    shet2++;
+   }
+}
+
+
+
+
+///////////////////////////////////////
+
+
+
+  
+  
+  
 for(var i=0;i<mass.length;i++)//кол-во элементов массива пробегаем
 {  
   if((mass[i].length-newmass[i].length)==1)//если факториал один
@@ -88,6 +170,6 @@ for(var i=0;i<lastmass.length;i++)
  summ=summ+lastmass[i];
 }
 //alert(summ);// 414720
-return summ;
+return summ+shet2;
 
 }
