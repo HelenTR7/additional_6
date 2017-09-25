@@ -131,12 +131,15 @@ var mult=1, shet2=0;
 for(var i=0;i<lastmassnum.length;i++)
 {
  mult=mult*lastmassnum[i];
- if(mult%10==0)
+}
+for(var i=0;i<lastmassnum.length;i++)
+{
+while(mult%10==0)
    {
     mult=mult/10;
     shet2++;
    }
-}
+ }
 
 
 
