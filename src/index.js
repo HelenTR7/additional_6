@@ -127,7 +127,7 @@ for(var i=0;i<mass.length;i++)//кол-во элементов массива п
 
 
 
-var mult=0, shet2=0;
+var mult=1, shet2=0;
 for(var i=0;i<lastmassnum.length;i++)
 {
  mult=mult*lastmassnum[i];
