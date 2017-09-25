@@ -55,7 +55,7 @@ for(var i=0; i<number; i++)
 
 
 
-expression='45!*28!*63!';
+//expression='45!*28!*63!';
 var mass=expression.split('*'); //разбили строку на массив без *
 var newmass = mass.map(function(name) //каждый элемент откинули все кроме цифр
 {  return name.replace(/\D/g,'');});
