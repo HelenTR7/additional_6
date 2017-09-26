@@ -76,6 +76,10 @@ return shet;
 }
 
 
+var factorial_4 = function(number) 
+{
+return 0;
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //expression='1!!*2!!*3!!*4!!*5!!*6!!*7!!*8!!*9!!*10!!*1!!*2!!*3!!*4!!*5!!*6!!*7!!*8!!*9!!*10!!';
@@ -99,11 +103,14 @@ for(var i=0;i<mass.length;i++)
     lastmass_5[i]=factorial(newmass[i]);
     lastmass_2[i]=factorial_3(newmass[i]);
   }
-  else // если факториала два
+else // если факториала два
    { 
     newmass[i]= +newmass[i];
     lastmass_5[i]=factorial_2(newmass[i]);
-    lastmass_2[i]=factorial_3(newmass[i]);
+    if((newmass[i]%2)==2){
+    lastmass_2[i]=factorial_3(newmass[i]);}
+    else{
+    lastmass_2[i]=factorial_4(newmass[i]);}
    }
 }
 //alert( lastmass_5+"mass kol fives" );//массив из количества пятерок в каждом факториале
