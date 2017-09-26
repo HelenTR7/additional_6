@@ -107,7 +107,7 @@ else // если факториала два
    { 
     newmass[i]= +newmass[i];
     lastmass_5[i]=factorial_2(newmass[i]);
-    if((newmass[i]%2)==2){
+    if((newmass[i]%2)==0){
     lastmass_2[i]=factorial_3(newmass[i]);}
     else{
     lastmass_2[i]=factorial_4(newmass[i]);}
