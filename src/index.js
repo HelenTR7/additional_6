@@ -1,87 +1,84 @@
 
 module.exports = function zeros(expression) 
 {
-  /////////////Считаем нули у !//////////////////////////////////////////////////////////////////////////////////
+  /////////////Считаем пятерки у !//////////////////////////////////////////////////////////////////////////////////
 var factorial = function(number) 
 {
+  //alert("Zahli v ! func");
+  var j=1;
   var shet=0;
-  var x=2;
   var y=5;
-for(var i=0; i<number; i++)
-{
-  if(number%x==0)
-    { shet=shet+(number/x); }
-    x=x*2;
-}
-for(var i=0; i<number; i++)
-{
-  if(number%y==0)
-    { shet=shet+(number/y); }
-    y=y*5;
-
-}
-//alert(shet); 
-return shet;
-}
-/////////////Cчитаем нули у !!/////////////////////////////////////////////////////////////////////////////////
-var factorial_2 = function(number) 
-{
-  var shet=0;
-  var y=10;
-for(var i=1; i<number; i++)
-{
-  if(i%y==0)
+  for(var i=0; i<number; i++)
+{ 
+   //alert("Hislo "+j);
+  if(j%y==0)
     { 
       shet++;
+      if((j/y)%y==0)
+     {
+      shet++;
+      
+     }
     }
+    j++;
+    //alert(shet); 
+}
+
+return shet;
+}
+/////////////Cчитаем пятерки у !!/////////////////////////////////////////////////////////////////////////////////
+var factorial_2 = function(number) 
+{
+  //alert("Zahli v !! func");
+  var j=number/2;
+  var shet=0;
+  var y=5;
+for(var i=0; i<j; i++)
+{
+  //alert("Hislo    "+number);
+  
+  if(number%y==0)
+    { 
+      shet++;
+      if((number/y)%y==0)
+      {
+       shet++;
+      }
+      
+    }
+    number=number-2;
+    
+    //alert(shet);
 } 
-//alert(shet);
+
 return shet;
 }
 
-/////////////Считаем 2 посл цифры чисел произведения в ! числа///////////////////////////////////////////////////
+/////////////Считаем двойки у !///////////////////////////////////////////////////////////////////////////
 var factorial_3 = function(number) 
 {
-  
- var lastnum=0;
- var p=1;
- for(var i=1;i<=number;i++)
- {
-   p=p*i;
-   if(p%10==0)
-   {
-    p=p/10;
-   }
- }
+  //alert("Zahli v ! func");
+  var j=0;
+  var shet=0;
+  var y=2;
+  for(var i=0; i<number; i++)
+   { 
+   //alert("Hislo "+j);
+     if(j%y==0)
+     { 
+      shet++;
+     }  
+    j=j+2;
+    //alert(shet); 
+  }
 
- lastnum=p%100;
-//alert(lastnum);
-return lastnum; 
+return shet;
 }
 
-////////////////Считаем 2 посл цифры в !! факториале числа///////////////////////////////////////////////////////
-var factorial_4 = function(number) 
-{
- var p=1;
- for(var i=number;i>0;i=i-2)
- {
-   p=p*i;
-   if(p%10==0)
-   {
-    p=p/10;
-   }
- }
- var lastnum;
- lastnum=p%100;//берем 2 посл цифры
-//alert(lastnum);
-return lastnum; 
 
-}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-//expression='45!*28!*63!';
+expression='1!!*2!!*3!!*4!!*5!!*6!!*7!!*8!!*9!!*10!!*1!!*2!!*3!!*4!!*5!!*6!!*7!!*8!!*9!!*10!!';
 var mass=expression.split('*'); //разбили строку на массив без *
 var newmass = mass.map(function(name) //каждый элемент откинули все кроме цифр
 {  return name.replace(/\D/g,'');});
@@ -91,76 +88,52 @@ var newmass = mass.map(function(name) //каждый элемент откину
 //alert(mass.length + " kolihestvo elem mass ");
 
 
-////////////////////Формируем массив кол-ва нулей в элементах массива/////////////////////////////////////////
-var lastmass=[];
+////////////////////Формируем массив кол-ва множителей 5 2 в элементах массива/////////////////////////////////////////
+var lastmass_5=[];
+var lastmass_2=[];
 for(var i=0;i<mass.length;i++)
 {  
   if((mass[i].length-newmass[i].length)==1)//если факториал один
   { 
     newmass[i]= +newmass[i];
-    lastmass[i]=factorial(newmass[i]);
+    lastmass_5[i]=factorial(newmass[i]);
+    lastmass_2[i]=factorial_3(newmass[i]);
   }
   else // если факториала два
    { 
-    if ((newmass[i]%2)==0)
-    {
     newmass[i]= +newmass[i];
-    lastmass[i]=factorial_2(newmass[i]);
-    }
-  }
-
-}
-
-//alert( lastmass+"mass kol nulei" );//массив из количества нулей в каждом факториале
-
-
-////////////Формируем массив двух посл цифр факториалов///////////////////////////////////////////////////////
-var lastmassnum=[];
-for(var i=0;i<mass.length;i++)
-{  
- 
-  if((mass[i].length-newmass[i].length)==1)//если факториал один
-  { 
-    newmass[i]= +newmass[i];
-    lastmassnum[i]=factorial_3(newmass[i]);//получили массив посл цифр
-   
-  }
-   else // если факториала два
-   { 
-    newmass[i]= +newmass[i];
-    lastmassnum[i]=factorial_4(newmass[i]);
+    lastmass_5[i]=factorial_2(newmass[i]);
+    lastmass_2[i]=factorial_3(newmass[i]);
    }
 }
-//alert(lastmassnum+"massiv last");
-////////////Количество нулей от произведения//////////////////////////////////////////////////////////////////
+//alert( lastmass_5+"mass kol fives" );//массив из количества пятерок в каждом факториале
 
-var mult=1, shet2=0;
-for(var i=0;i<lastmassnum.length;i++)
+//alert( lastmass_2+"mass kol two" );//массив из количества пятерок в каждом факториале
+
+var summ5=0;
+for(var i=0;i<lastmass_5.length;i++)
 {
- mult=mult*lastmassnum[i];
+  lastmass_5[i]= +lastmass_5[i];
+  summ5=summ5+lastmass_5[i];
+
 }
-for(var i=0;i<lastmassnum.length;i++)
+  //alert("kolvo fives :  "+summ5);
+
+var summ2=0;
+for(var i=0;i<lastmass_2.length;i++)
 {
-while(mult%10==0)
-   {
-    mult=mult/10;
-    shet2++;
-   }
- }
-//alert(shet2+"kol-vo nul ot proizv");
+  lastmass_2[i]= +lastmass_2[i];
+  summ2=summ2+lastmass_2[i];
 
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-var summ=0;
-for(var i=0;i<lastmass.length;i++)
-{
- summ=summ+lastmass[i];
 }
-//alert(summ+shet2+"ITOG");// 414720
-return summ+shet2;/////////////////////////////////////////////////////////////
+  //alert("kolvo two :  "+summ2);
+
+if(summ2>summ5){
+//alert("ITOG   "+summ5);// итоговое кол-во нулей
+return summ5;
+}else{
+  //alert("ITOG   "+summ2);// итоговое кол-во нулей
+  return summ2;
+}
 
 }
